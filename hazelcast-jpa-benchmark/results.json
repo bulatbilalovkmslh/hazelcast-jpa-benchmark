@@ -1,0 +1,20 @@
+[
+  {
+    "noCacheMs": 121981,
+    "secondLevelCacheMs": 94431,
+    "distributedCacheMs": 14133,
+    "ttlEffect": {
+      "hits": 9986,
+      "misses":14
+    }
+  },
+  {
+    "noCacheMs": 109900,
+    "secondLevelCacheMs": 20172,
+    "distributedCacheMs": 10235,
+    "ttlEffect": {
+      "hits": 9989,
+      "misses":11
+    }
+  }
+]

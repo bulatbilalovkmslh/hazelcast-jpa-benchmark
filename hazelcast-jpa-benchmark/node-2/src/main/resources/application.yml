@@ -1,0 +1,36 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: node-2
+
+  datasource:
+    url: jdbc:postgresql://localhost:5434/hz_benchmark
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        cache:
+          use_second_level_cache: true
+          region:
+            factory_class: com.hazelcast.hibernate.HazelcastCacheRegionFactory
+          use_query_cache: true
+
+        format_sql: true
+        generate_statistics: true
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.cache: DEBUG
+    com.hazelcast: INFO
+
+app:
+  node-id: node-2
