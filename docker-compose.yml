@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: hazelcast_benchmark_postgres
+    environment:
+      POSTGRES_DB: hz_benchmark
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - hz_benchmark_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d hz_benchmark"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  hz_benchmark_pgdata:
